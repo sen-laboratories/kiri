@@ -1,4 +1,7 @@
-name: Build and Deploy Kiri Repositories
+name: Build the Kiri Repository Index
+
+# The repository file is made with package_repo, a Haiku tool, so this runs it in a Haiku VM.
+# GitHub Pages serves the main branch, the result is committed back to it.
 
 on:
   push:
@@ -14,35 +17,39 @@ permissions:
   contents: write
 
 jobs:
-  build-and-deploy:
+  build-index:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
-      - name: Install Haiku Package Tools & Python
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y haiku-package-tools python3
+      - name: Start Haiku VM
+        uses: cross-platform-actions/action@v1.6.0
+        with:
+          operating_system: haiku
+          architecture: x86-64
+          version: 'r1beta6'
 
       - name: Build Index for x86_64
+        shell: cpa.sh {0}
         run: |
-          if [ -d "x86_64/packages" ] && [ -n "$(ls -A x86_64/packages/*.hpkg 2>/dev/null)" ]; then
-            cd x86_64
-            package_repo create repo.info repo packages/*.hpkg
-            cd ..
+          cd x86_64
+          if ls packages/*.hpkg >/dev/null 2>&1; then
+            package_repo create repo.info packages/*.hpkg
           fi
 
       - name: Generate Packages Directory Listing
-        run: |
-          python3 scripts/generate_directory_index.py
+        run: python3 scripts/generate_directory_index.py
 
       - name: Ensure .nojekyll exists
-        run: |
-          touch .nojekyll
+        run: touch .nojekyll
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+      - name: Commit the index
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add x86_64/repo x86_64/packages/index.html .nojekyll
+          if ! git diff --cached --quiet; then
+            git commit -m "Update the package index"
+            git push
+          fi

@@ -1,5 +1,5 @@
 name            SEN Labs Kiri (x86_64)
-vendor          SEN Labs e.U.
+vendor          "SEN Labs e.U."
 summary         Official package repository for SEN components, plugins, native Haiku apps, and required ports
 priority        1
 url             https://kiri.sen-labs.org/x86_64
