@@ -36,8 +36,8 @@ architecture    x86_64
 3. Building the Repository Index Locally
 
 To create or update the binary repository index (repo), run the Haiku tool package_repo inside the specific architecture folder.
-See the [Local Build Script](x86_64/build_repo.sh)
+See the [Local Build Script](../x86_64/build-repo.sh)
 
 4. Automated Deployment via GitHub Actions
 
-A [GitHub Workflow](.github/workflows/deploy.yaml) automatically rebuilds the package index whenever new .hpkg files are pushed to any architecture path.
+A [GitHub Workflow](../.github/workflows/deploy.yaml) automatically rebuilds the package index whenever new .hpkg files are pushed to any architecture path.
