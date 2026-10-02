@@ -1,0 +1,39 @@
+name: Build and Deploy Kiri Repositories
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**/packages/*.hpkg'
+      - '**/repo.info'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Haiku Package Tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y haiku-package-tools
+
+      - name: Build Index for x86_64
+        run: |
+          if [ -d "x86_64/packages" ] && [ -n "$(ls -A x86_64/packages/*.hpkg 2>/dev/null)" ]; then
+            cd x86_64
+            package_repo create repo.info repo packages/*.hpkg
+            cd ..
+          fi
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
