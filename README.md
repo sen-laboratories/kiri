@@ -31,13 +31,10 @@ Kiri is structured to support multiple CPU architectures cleanly under distinct 
 📚 Documentation
 
 For detailed information on maintaining, building, and deploying the repository, see the documentation in docs/:
-
-    Repository Maintenance & Deployment Guide
-
-    Package Management Guidelines
+* [Repository Maintenance & Deployment Guide](docs/repository-guide.md)
+* [Package Management Guidelines](docs/package-guidelines.md)
 
 🛠️ Maintainer & Contact
 
-    Publisher: SEN Labs (https://sen-labs.org)
-
-    License: MIT / Open Source
+* Publisher: [SEN Labs](https://sen-labs.org)
+* License: MIT / Open Source
