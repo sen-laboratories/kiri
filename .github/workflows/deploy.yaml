@@ -1,7 +1,4 @@
-name: Build the Kiri Repository Index
-
-# The repository file is made with package_repo, a Haiku tool, so this runs it in a Haiku VM.
-# GitHub Pages serves the main branch, the result is committed back to it.
+name: Build and Deploy Kiri Repositories
 
 on:
   push:
@@ -17,39 +14,49 @@ permissions:
   contents: write
 
 jobs:
-  build-index:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
-      - name: Start Haiku VM
-        uses: cross-platform-actions/action@v1.6.0
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          operating_system: haiku
-          architecture: x86-64
-          version: 'r1beta6'
+          python-version: '3.x'
+
+      - name: Fetch Haiku Host Tools (package_repo)
+        run: |
+          mkdir -p bin
+          curl -sL https://raw.githubusercontent.com/haiku/haiku-toolchains-ubuntu/master/fetch.sh -o fetch.sh
+          chmod +x fetch.sh
+          
+          # Lade die vorkompilierten Linux Host-Tools von Haiku herunter
+          HOSTTOOLS_URL=$(./fetch.sh --hosttools)
+          curl -sL "$HOSTTOOLS_URL" -o hosttools.tar.xz
+          tar -xf hosttools.tar.xz -C bin/ --strip-components=1
+          
+          # Füge den bin-Ordner zum PATH hinzu
+          echo "$(pwd)/bin" >> $GITHUB_PATH
 
       - name: Build Index for x86_64
-        shell: cpa.sh {0}
         run: |
-          cd x86_64
-          if ls packages/*.hpkg >/dev/null 2>&1; then
-            package_repo create repo.info packages/*.hpkg
+          if [ -d "x86_64/packages" ] && [ -n "$(ls -A x86_64/packages/*.hpkg 2>/dev/null)" ]; then
+            cd x86_64
+            package_repo create repo.info repo packages/*.hpkg
+            cd ..
           fi
 
       - name: Generate Packages Directory Listing
-        run: python3 scripts/generate_directory_index.py
+        run: |
+          python3 scripts/generate_directory_index.py
 
       - name: Ensure .nojekyll exists
-        run: touch .nojekyll
-
-      - name: Commit the index
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add x86_64/repo x86_64/packages/index.html .nojekyll
-          if ! git diff --cached --quiet; then
-            git commit -m "Update the package index"
-            git push
-          fi
+          touch .nojekyll
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
