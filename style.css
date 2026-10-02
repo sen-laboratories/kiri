@@ -1,0 +1,141 @@
+/* Base Setup (Default / Dark Mode) */
+:root {
+  --bg-color: #0f1115;
+  --card-bg: #181b21;
+  --card-border: #2a2e39;
+  --text-main: #e6e8ec;
+  --text-muted: #9a9ea8;
+  --accent: #3a86ff;
+  --accent-light: rgba(58, 134, 255, 0.15);
+  --code-bg: #090a0d;
+  --code-border: #232731;
+  --badge-bg: #222733;
+}
+
+/* Light Mode Override (System Preference) */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #f5f7fa;
+    --card-bg: #ffffff;
+    --card-border: #e1e4eb;
+    --text-main: #1f2328;
+    --text-muted: #656d76;
+    --accent: #0969da;
+    --accent-light: rgba(9, 105, 218, 0.08);
+    --code-bg: #f6f8fa;
+    --code-border: #d0d7de;
+    --badge-bg: #eef2f8;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding: 2rem 1rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.logo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: var(--badge-bg);
+  color: var(--accent);
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--card-border);
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+pre {
+  background-color: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.arch-list {
+  list-style: none;
+}
+
+.arch-list a {
+  display: flex;
+  flex-direction: column;
+  padding: 0.85rem 1rem;
+  background-color: var(--accent-light);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-main);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.arch-list a:hover {
+  transform: translateY(-1px);
+}
+
+.arch-list strong {
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+.arch-list span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
