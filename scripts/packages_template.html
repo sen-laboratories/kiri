@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Packages List ({{ARCH}}) — Kiri Repository</title>
+  <link rel="stylesheet" href="../../style.css">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--card-border);
+    }
+    th {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .file-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      word-break: break-all;
+    }
+    .file-link:hover {
+      text-decoration: underline;
+    }
+    .file-size, .file-date {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <div class="logo-badge">桐</div>
+      <h1>Packages Index ({{ARCH}})</h1>
+      <p class="subtitle"><a href="../">← Back to {{ARCH}} architecture overview</a></p>
+    </header>
+
+    <section class="card">
+      <h2>📦 Available Packages</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Package File</th>
+            <th>Size</th>
+            <th>Last Modified</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{PACKAGE_ROWS}}
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
