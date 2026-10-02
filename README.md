@@ -15,3 +15,29 @@ Add the repository to your Haiku system using `pkgman`:
 # Add the x86_64 architecture repository
 pkgman add-repo [https://kiri.sen-labs.org/x86_64](https://kiri.sen-labs.org/x86_64)
 ```
+
+🏛️ Repository Architecture & Layout
+
+Kiri is structured to support multiple CPU architectures cleanly under distinct URL subpaths:
+```
+[https://kiri.sen-labs.org/](https://kiri.sen-labs.org/)
+├── x86_64/              # 64-bit Haiku repository
+│   ├── repo             # Binary repository index
+│   ├── repo.info        # Repository metadata
+│   └── packages/        # .hpkg package files
+└── docs/                # Architecture & deployment documentation
+```
+
+📚 Documentation
+
+For detailed information on maintaining, building, and deploying the repository, see the documentation in docs/:
+
+    Repository Maintenance & Deployment Guide
+
+    Package Management Guidelines
+
+🛠️ Maintainer & Contact
+
+    Publisher: SEN Labs (https://sen-labs.org)
+
+    License: MIT / Open Source
