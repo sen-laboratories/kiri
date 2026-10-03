@@ -27,7 +27,7 @@ jobs:
 
       - name: Fetch Haiku Host Tools (package_repo)
         run: |
-          apt-get install xz-utils
+          sudo apt-get install -y xz-utils
           mkdir -p bin
           curl -sL https://raw.githubusercontent.com/haiku/haiku-toolchains-ubuntu/master/fetch.sh -o fetch.sh
           chmod +x fetch.sh
