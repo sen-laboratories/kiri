@@ -40,6 +40,8 @@ jobs:
           
           # Füge den bin-Ordner zum PATH hinzu
           echo "$(pwd)/bin" >> $GITHUB_PATH
+          # the tools load libroot_build.so and the like from the same directory
+          echo "LD_LIBRARY_PATH=$(pwd)/bin:$LD_LIBRARY_PATH" >> $GITHUB_ENV
 
       - name: Build Index for x86_64
         run: |
