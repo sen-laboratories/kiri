@@ -47,7 +47,7 @@ jobs:
         run: |
           if [ -d "x86_64/packages" ] && [ -n "$(ls -A x86_64/packages/*.hpkg 2>/dev/null)" ]; then
             cd x86_64
-            package_repo create repo.info repo packages/*.hpkg
+            package_repo create repo.info packages/*.hpkg
             # pkgman add-repo checks the repository against this checksum
             sha256sum repo | cut -d' ' -f1 > repo.sha256
             cd ..
