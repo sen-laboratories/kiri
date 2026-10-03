@@ -27,15 +27,16 @@ jobs:
 
       - name: Fetch Haiku Host Tools (package_repo)
         run: |
-          sudo apt-get install -y xz-utils
           mkdir -p bin
           curl -sL https://raw.githubusercontent.com/haiku/haiku-toolchains-ubuntu/master/fetch.sh -o fetch.sh
           chmod +x fetch.sh
           
           # Lade die vorkompilierten Linux Host-Tools von Haiku herunter
           HOSTTOOLS_URL=$(./fetch.sh --hosttools)
-          curl -sL "$HOSTTOOLS_URL" -o hosttools.tar.xz
-          tar -xf hosttools.tar.xz -C bin/ --strip-components=1
+          # the release is a zip now (it was a tar.xz), without a top level directory
+          curl -sL "$HOSTTOOLS_URL" -o hosttools.zip
+          unzip -q hosttools.zip -d bin/
+          chmod +x bin/*
           
           # Füge den bin-Ordner zum PATH hinzu
           echo "$(pwd)/bin" >> $GITHUB_PATH
