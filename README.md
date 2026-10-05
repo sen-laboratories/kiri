@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/kiri-repo-logo.jpg" alt="Kiri Repository Package Logo" width="320">
+  <img src="images/kiri-repo-logo_small.png" alt="Kiri Repository Package Logo" width="320">
 </p>
 
 # Kiri Package Repository
