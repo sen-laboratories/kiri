@@ -1,4 +1,8 @@
-# Kiri Package Repository 📦🌸
+<p align="center">
+  <img src="images/kiri-repo-logo.jpg" alt="Kiri Repository Package Logo" width="320">
+</p>
+
+# Kiri Package Repository
 
 > **SEN Labs Official Package Repository for Haiku OS**  
 > Hosted at [`https://kiri.sen-labs.org`](https://kiri.sen-labs.org)
