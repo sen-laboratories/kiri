@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="images/kiri-repo-logo_small.png" alt="Kiri Repository Package Logo" width="320">
+  <img src="images/kiri-repo-logo_small.png" alt="Kiri Repository Package Logo" width="280">
 </p>
 
-# Kiri Package Repository
+# 桐 Kiri Package Repository
 
 > **SEN Labs Official Package Repository for Haiku OS**  
 > Hosted at [`https://kiri.sen-labs.org`](https://kiri.sen-labs.org)
