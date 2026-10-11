@@ -13,26 +13,48 @@
 
 ## 🚀 Quick Start for Haiku Users
 
-Add the repository to your Haiku system using `pkgman`:
+Add the repository to your Haiku system with `pkgman`, then install what you need:
 
 ```bash
-# Add the x86_64 architecture repository
-pkgman add-repo [https://kiri.sen-labs.org/x86_64](https://kiri.sen-labs.org/x86_64)
+# add the repository for 64-bit Haiku
+pkgman add-repo https://kiri.sen-labs.org/x86_64
+
+# get the list of packages, and install some
+pkgman refresh
+pkgman install sen_core
 ```
 
-🏛️ Repository Architecture & Layout
+`pkgman add-repo` checks the repository against its checksum (`repo.sha256`); packages that are installed from it are updated with `pkgman update`.
+To remove the repository again: `pkgman drop-repo "SEN Labs Kiri (x86_64)"`.
+
+### Packages
+
+| Package | What it is |
+|---------|------------|
+| `sen_core` | the SEN server (relations between files, queries, the item in the Deskbar) and the command `sen` |
+| `toji` | a universal document reader for Haiku, extended for SEN |
+| `mupdf1.28`, `mupdf1.28_devel` | the MuPDF library that Toji renders with (and its headers) |
+
+More SEN packages (the ontologies, the SENSEI plugins, the Akita file manager) come here as they are published. Look at what is there now with
+`pkgman search -a` (all repositories) or on [kiri.sen-labs.org/x86_64/packages](https://kiri.sen-labs.org/x86_64/packages/).
+
+---
+
+## 🏛️ Repository Architecture & Layout
 
 Kiri is structured to support multiple CPU architectures cleanly under distinct URL subpaths:
-```
-[https://kiri.sen-labs.org/](https://kiri.sen-labs.org/)
+
+```text
+https://kiri.sen-labs.org/
 ├── x86_64/              # 64-bit Haiku repository
 │   ├── repo             # Binary repository index
+│   ├── repo.sha256      # Checksum of the index, checked by pkgman add-repo
 │   ├── repo.info        # Repository metadata
 │   └── packages/        # .hpkg package files
 └── docs/                # Architecture & deployment documentation
 ```
 
-📚 Documentation
+## 📚 Documentation
 
 For detailed information on maintaining, building, and deploying the repository, see the documentation in docs/:
 * [Repository Maintenance & Deployment Guide](docs/repository-guide.md)

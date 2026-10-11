@@ -5,7 +5,10 @@ Follow standard Haiku package naming rules:
 `<vendor_or_app>-<version>-<release>-<architecture>.hpkg`
 
 **Example:**
-`senity-0.1.0-1-x86_64.hpkg`
+`sen_core-1.0.0~dev-1-x86_64.hpkg`
+
+The name of a package uses underscores (`sen_core`), the version comes from the application resource of the program (a development build is a
+pre-release: `1.0.0~dev`, which is older than `1.0.0`).
 
 ## Adding a New Package
 1. Drop the compiled `.hpkg` into the target architecture folder (e.g., `x86_64/packages/`).
