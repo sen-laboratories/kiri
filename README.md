@@ -32,6 +32,7 @@ To remove the repository again: `pkgman drop-repo "SEN Labs Kiri (x86_64)"`.
 | Package | What it is |
 |---------|------------|
 | `sen_core` | the SEN server (relations between files, queries, the item in the Deskbar) and the command `sen`; brings `sen_oni` and `sen_ontology_core` |
+| `akita` | the Tracker of SEN: the file manager with relations. Replaces Tracker at the next login (the command `akita` switches: `akita start`, `akita stop`) |
 | `sen_oni` | the ontology installer: puts the MIME types of the ontology packages into the MIME database (`sen_oni --update`) |
 | `sen_ontology_core` | the core ontology of SEN: relations, classifications, entities |
 | `sen_ontology_books`, `sen_ontology_movies`, `sen_ontology_music`, `sen_ontology_sourcecode` | ontologies for these domains (they need `sen_ontology_core`) |
@@ -42,7 +43,7 @@ To remove the repository again: `pkgman drop-repo "SEN Labs Kiri (x86_64)"`.
 | `toji` | a universal document reader for Haiku, extended for SEN |
 | `mupdf1.28`, `mupdf1.28_devel` | the MuPDF library that Toji renders with (and its headers) |
 
-More SEN packages (the Akita file manager) come here as they are published. Look at what is there now with
+More SEN packages come here as they are published. Look at what is there now with
 `pkgman search -a` (all repositories) or on [kiri.sen-labs.org/x86_64/packages](https://kiri.sen-labs.org/x86_64/packages/).
 
 ---
