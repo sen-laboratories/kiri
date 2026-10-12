@@ -35,10 +35,14 @@ To remove the repository again: `pkgman drop-repo "SEN Labs Kiri (x86_64)"`.
 | `sen_oni` | the ontology installer: puts the MIME types of the ontology packages into the MIME database (`sen_oni --update`) |
 | `sen_ontology_core` | the core ontology of SEN: relations, classifications, entities |
 | `sen_ontology_books`, `sen_ontology_movies`, `sen_ontology_music`, `sen_ontology_sourcecode` | ontologies for these domains (they need `sen_ontology_core`) |
+| `sen_plugins` | brings all the SENSEI plugins below (one installation for the whole set) |
+| `sen_plugin_pdf_extractor`, `sen_plugin_markdown_extractor`, `sen_plugin_sourcecode_extractor`, `sen_plugin_mime_extractor` | extract the relations inside files: PDF bookmarks, Markdown links, includes/imports/modules of source code (C family, Go, Java, JavaScript/TypeScript, Python, Rust), the attributes of a MIME type; the source code plugin also identifies the language |
+| `sen_plugin_pdf_navigator`, `sen_plugin_text_navigator`, `sen_plugin_reference_navigator`, `sen_plugin_relation_navigator` | open the target of a relation: a place in a PDF, a text, a reference, a relation file |
+| `sen_plugin_book_enricher` | looks up metadata of books online |
 | `toji` | a universal document reader for Haiku, extended for SEN |
 | `mupdf1.28`, `mupdf1.28_devel` | the MuPDF library that Toji renders with (and its headers) |
 
-More SEN packages (the SENSEI plugins, the Akita file manager) come here as they are published. Look at what is there now with
+More SEN packages (the Akita file manager) come here as they are published. Look at what is there now with
 `pkgman search -a` (all repositories) or on [kiri.sen-labs.org/x86_64/packages](https://kiri.sen-labs.org/x86_64/packages/).
 
 ---
