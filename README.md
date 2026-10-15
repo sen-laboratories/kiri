@@ -35,11 +35,12 @@ To remove the repository again: `pkgman drop-repo "SEN Labs Kiri (x86_64)"`.
 | `akita` | the Tracker of SEN: the file manager with relations. Replaces Tracker at the next login (the command `akita` switches: `akita start`, `akita stop`) |
 | `sen_oni` | the ontology installer: puts the MIME types of the ontology packages into the MIME database (`sen_oni --update`) |
 | `sen_ontology_core` | the core ontology of SEN: relations, classifications, entities |
-| `sen_ontology_books`, `sen_ontology_movies`, `sen_ontology_music`, `sen_ontology_sourcecode` | ontologies for these domains (they need `sen_ontology_core`) |
+| `sen_ontology_books`, `sen_ontology_movies`, `sen_ontology_music`, `sen_ontology_papers`, `sen_ontology_sourcecode` | ontologies for these domains (they need `sen_ontology_core`) |
 | `sen_plugins` | brings all the SENSEI plugins below (one installation for the whole set) |
 | `sen_plugin_pdf_extractor`, `sen_plugin_markdown_extractor`, `sen_plugin_sourcecode_extractor`, `sen_plugin_mime_extractor` | extract the relations inside files: PDF bookmarks, Markdown links, includes/imports/modules of source code (C family, Go, Java, JavaScript/TypeScript, Python, Rust), the attributes of a MIME type; the source code plugin also identifies the language |
 | `sen_plugin_pdf_navigator`, `sen_plugin_text_navigator`, `sen_plugin_reference_navigator`, `sen_plugin_relation_navigator` | open the target of a relation: a place in a PDF, a text, a reference, a relation file |
 | `sen_plugin_book_enricher` | looks up metadata of books online |
+| `sen_plugin_paperboy` | identifies scientific papers (PDF, EPUB), looks up their metadata and open access copies (OpenAlex, Unpaywall) and extracts the papers they cite |
 | `toji` | a universal document reader for Haiku, extended for SEN |
 | `mupdf1.28`, `mupdf1.28_devel` | the MuPDF library that Toji renders with (and its headers) |
 
