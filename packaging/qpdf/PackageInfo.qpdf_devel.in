@@ -1,0 +1,28 @@
+name			qpdf_devel
+version			@VERSION@
+architecture	@ARCH@
+summary			"A library and tools for transforming PDF files (development files)"
+description		"The headers and the pkg-config file of the qpdf library, to build programs
+that read PDF files with it."
+packager		"Gregor B. Rosenauer <semantic.extensions@gmail.com>"
+vendor			"SEN Labs e.U."
+copyrights		{
+	"2005-2021 Jay Berkenbilt"
+	"2022-2026 Jay Berkenbilt and Manfred Holger"
+}
+licenses		{
+	"Apache v2"
+}
+urls			{
+	"https://qpdf.org"
+}
+source-urls		{
+	"https://github.com/qpdf/qpdf"
+}
+provides		{
+	qpdf_devel = @VERSION@
+	devel:libqpdf = @SOVERSION@ compat >= @SOMAJOR@
+}
+requires		{
+	qpdf == @VERSION@ base
+}

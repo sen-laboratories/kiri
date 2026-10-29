@@ -1,0 +1,40 @@
+name			qpdf
+version			@VERSION@
+architecture	@ARCH@
+summary			"A library and tools for transforming PDF files"
+description		"QPDF is a C++ library and a set of programs that inspect and manipulate the
+structure of PDF files without rendering them: it reads the document structure
+and the metadata (the info dictionary and the XMP stream), the outlines
+(bookmarks), pages, annotations and attachments, decrypts and encrypts,
+linearizes, repairs damaged files and merges, splits and rotates pages. It
+does not extract text or draw pages. Built for SEN, which reads the outlines
+and the metadata of PDF files with it."
+packager		"Gregor B. Rosenauer <semantic.extensions@gmail.com>"
+vendor			"SEN Labs e.U."
+copyrights		{
+	"2005-2021 Jay Berkenbilt"
+	"2022-2026 Jay Berkenbilt and Manfred Holger"
+}
+licenses		{
+	"Apache v2"
+}
+urls			{
+	"https://qpdf.org"
+}
+source-urls		{
+	"https://github.com/qpdf/qpdf"
+}
+provides		{
+	qpdf = @VERSION@
+	lib:libqpdf = @SOVERSION@ compat >= @SOMAJOR@
+	cmd:qpdf = @VERSION@
+	cmd:fix_qdf = @VERSION@
+	cmd:zlib_flate = @VERSION@
+}
+requires		{
+	haiku
+	lib:libz
+	lib:libjpeg
+	lib:libssl
+	lib:libcrypto
+}
