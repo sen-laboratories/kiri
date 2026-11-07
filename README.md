@@ -36,7 +36,7 @@ To remove the repository again: `pkgman drop-repo "SEN Labs Kiri (x86_64)"`.
 | `sen_oni` | the ontology installer: puts the MIME types of the ontology packages into the MIME database (`sen_oni --update`) |
 | `sen_ontology_core` | the core ontology of SEN: relations, classifications, entities |
 | `sen_ontology_books`, `sen_ontology_movies`, `sen_ontology_music`, `sen_ontology_papers`, `sen_ontology_people`, `sen_ontology_sourcecode` | ontologies for these domains (they need `sen_ontology_core`) |
-| `sen_ontology_spatial` | places and locations, and the spatial relations between them: within, covered by, touches, overlaps, equal to, the points of interest of a place, located near (needs `sen_ontology_core`) |
+| `sen_ontology_spatial` | places and locations, and the spatial relations between them: within, covered by, touches, overlaps, equal to, what is nearby a place, located near (needs `sen_ontology_core`) |
 | `sen_filetypes` | FileTypes with the fields for lists of values (`SEN:is_list`); `sen_core` needs it |
 | `shoji` | the entity editor of SEN: a form for the attributes of a file, from a template for its type (people, papers, books, contacts) or generated from the type |
 | `sen_plugins` | brings all the SENSEI plugins below (one installation for the whole set) |
@@ -45,7 +45,7 @@ To remove the repository again: `pkgman drop-repo "SEN Labs Kiri (x86_64)"`.
 | `sen_plugin_book_enricher` | looks up metadata of books online (OpenLibrary) and makes the authors |
 | `sen_plugin_movie_enricher` | Akari: looks up movies at The Movie Database (needs a free API key, set in the settings window of SEN) and makes the director, the crew and the cast people with a Contribution to the movie. *This product uses the TMDB API but is not endorsed or certified by TMDB.* |
 | `sen_plugin_paperboy` | identifies scientific papers (PDF, EPUB), looks up their metadata and open access copies (OpenAlex, arXiv, Semantic Scholar, DBLP, Unpaywall), extracts the papers they cite, and makes the authors people (ORCID, Wikidata) |
-| `sen_plugin_spatial_navigator` | works out the spatial relations between places when they are opened (GEOS; Wikidata for what contains a place) and lists the points of interest in the area of a place (OpenStreetMap, Overpass API: the server is chosen in the settings window of SEN) |
+| `sen_plugin_spatial_navigator` | works out the spatial relations between places when they are opened (GEOS; Wikidata for what contains a place) and lists what is nearby a place (OpenStreetMap, Overpass API: the server is chosen in the settings window of SEN) |
 | `sen_plugin_place_enricher` | SUESS: looks up places and locations (OpenStreetMap Nominatim, Wikidata), by name, position or address; makes the places that contain them and finds the places near a position |
 | `toji` | a universal document reader for Haiku, extended for SEN |
 | `mupdf1.28`, `mupdf1.28_devel` | the MuPDF library that Toji renders with (and its headers) |
