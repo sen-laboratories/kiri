@@ -46,7 +46,7 @@ To remove the repository again: `pkgman drop-repo "SEN Labs Kiri (x86_64)"`.
 | `sen_plugin_movie_enricher` | Akari: looks up movies at The Movie Database (needs a free API key, set in the settings window of SEN) and makes the director, the crew and the cast people with a Contribution to the movie. *This product uses the TMDB API but is not endorsed or certified by TMDB.* |
 | `sen_plugin_paperboy` | identifies scientific papers (PDF, EPUB), looks up their metadata and open access copies (OpenAlex, arXiv, Semantic Scholar, DBLP, Unpaywall), extracts the papers they cite, and makes the authors people (ORCID, Wikidata) |
 | `sen_plugin_spatial_navigator` | works out the spatial relations between places when they are opened (GEOS; Wikidata for what contains a place) and lists what is nearby a place (OpenStreetMap, Overpass API: the server is chosen in the settings window of SEN) |
-| `sen_plugin_place_enricher` | SUESS: looks up places and locations (OpenStreetMap Nominatim, Wikidata), by name, position or address; makes the places that contain them and finds the places near a position |
+| `sen_plugin_place_enricher` | Spaces: looks up places and locations (OpenStreetMap Nominatim, Wikidata), by name, position or address; makes the places that contain them and finds the places near a position |
 | `toji` | a universal document reader for Haiku, extended for SEN |
 | `mupdf1.28`, `mupdf1.28_devel` | the MuPDF library that Toji renders with (and its headers) |
 | `qpdf`, `qpdf_devel` | the qpdf library (HaikuPorts has no recipe); the PDF extractor needs it |
