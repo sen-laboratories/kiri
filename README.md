@@ -47,6 +47,8 @@ To remove the repository again: `pkgman drop-repo "SEN Labs Kiri (x86_64)"`.
 | `sen_plugin_paperboy` | identifies scientific papers (PDF, EPUB), looks up their metadata and open access copies (OpenAlex, arXiv, Semantic Scholar, DBLP, Unpaywall), extracts the papers they cite, and makes the authors people (ORCID, Wikidata) |
 | `sen_plugin_spatial_navigator` | works out the spatial relations between places when they are opened (GEOS; Wikidata for what contains a place) and lists what is nearby a place (OpenStreetMap, Overpass API: the server is chosen in the settings window of SEN) |
 | `sen_plugin_place_enricher` | Spaces: looks up places and locations (OpenStreetMap Nominatim, Wikidata), by name, position or address; makes the places that contain them and finds the places near a position |
+| `sen_plugin_person_enricher` | Robin: finds the photo, the profile, the accounts and the posts of a person from the links of its file (Libravatar and Gravatar by the hash of the e-mail address, GitHub, the Fediverse, Bluesky, the feed of a homepage); which services may be asked is set in the settings window of SEN |
+| `basho`, `basho_devel` | the location server: where this computer is, roughly (from its internet address, only if you allow it, and only as fine as you allow, for each program); a client class and the command `location`. It does not need SEN, which uses it |
 | `toji` | a universal document reader for Haiku, extended for SEN |
 | `mupdf1.28`, `mupdf1.28_devel` | the MuPDF library that Toji renders with (and its headers) |
 | `qpdf`, `qpdf_devel` | the qpdf library (HaikuPorts has no recipe); the PDF extractor needs it |
